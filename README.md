@@ -5,7 +5,7 @@
 </div>
 
 <div align="center">
-  <img src="./3E437F1C6B2FD8E54ACA429E7FDBE63D.gif" alt="Animated character" width="30%" />
+  <img src="./gugu-gaga.gif" alt="咕咕嘎嘎动画" width="30%" />
   <h2>💪 Skill</h2>
   <div>Learning can be tough, but sticking with it is what makes the difference.</div>
   <a href="https://skillicons.dev">

@@ -1,5 +1,4 @@
 name: Generate GitHub Snake
-
 on:
   schedule:
     - cron: '0 */12 * * *'
