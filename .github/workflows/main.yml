@@ -1,0 +1,41 @@
+name: Generate GitHub Snake
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  generate-snake:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate snake images
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: J1ngYue
+          outputs: |
+            dist/github-snake.svg
+            dist/github-snake-dark.svg
+
+      - name: Copy images to repository root
+        run: |
+          mkdir -p dist
+          cp dist/github-snake.svg github-snake.svg
+          cp dist/github-snake-dark.svg github-snake-dark.svg
+
+      - name: Commit and push generated images
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Generate snake animation"
+          branch: ${{ github.ref_name }}
